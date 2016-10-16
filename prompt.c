@@ -23,12 +23,14 @@ void add_history(char* unused) {}
 /* I think this will only work on Mac */
 #else
 #include <editline/readline.h>
-/* Linux likely needs editline/history.h */
+#ifdef __linux__
+#include <editline/history.h>
+#endif
 #endif
 
 int main(int argc, char** argv) {
   /* Print Version and Exit Information */
-  puts("Krisp Version 0.2.1");
+  puts("Krisp Version 0.2.2");
   puts("Press Ctrl+c to Exit\n");
 
   /* In a never ending loop */
